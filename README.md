@@ -1,168 +1,209 @@
-# Hydeout
+# Neumorphism <!-- omit in toc -->
 
-Hydeout updates the original [Hyde](https://github.com/poole/hyde)
-theme for [Jekyll](http://jekyllrb.com) 3.x and 4.x and adds new functionality.
+> Neumorphism designed Jekyll theme for personal websites, portfolios and resumes.
 
-![Desktop](/_screenshots/1.png?raw=true)
-<img alt="Mobile home page" src="/_screenshots/2.png?raw=true" width="300px" />
-<img alt="Mobile post page" src="/_screenshots/3.png?raw=true" width="300px" />
+* Featured on [JAMstack Themes](https://jamstackthemes.dev/theme/jekyll-neumorphism/)
+* Featured on [Jekyll Themes](https://jekyll-themes.com/neumorphism/)
+* Featured on [jekyllthemes](http://jekyllthemes.org/themes/neumorphism/)
 
-### Usage
+[![Open Issues](https://badgen.net/github/open-issues/longpdo/neumorphism)](https://github.com/longpdo/neumorphism/issues)
+[![License](https://badgen.net/github/license/longpdo/neumorphism)](LICENSE)
+<a href="https://jekyll-themes.com">
+    <img src="https://img.shields.io/badge/featured%20on-JT-red.svg" height="20" alt="Jekyll Themes Shield" >
+</a>
 
-Hydeout is available as the `jekyll-theme-hydeout` Ruby Gem.
-Add `gem "jekyll-theme-hydeout", "~> 4.1"` to your Gemfile and run
-`bundle install`.
+[View Demo](https://longpdo.github.io/neumorphism/) · [Report Bug](https://github.com/longpdo/neumorphism/issues) · [Request Feature](https://github.com/longpdo/neumorphism/issues)
 
-If you're installing on Github pages, you may also have to add
-`remote_theme: fongandrew/hydeout` to your `_config.yml`. [See the Github
-instructions for more details.](https://help.github.com/articles/adding-a-jekyll-theme-to-your-github-pages-site/)
+<!-- TABLE OF CONTENTS -->
+## Table of Contents <!-- omit in toc -->
 
-Hydeout uses pagination, so if you have an `index.md`, you'll need to swap
-it with an `index.html` that uses the `index` layout:
+* [About The Project](#about-the-project)
+  * [Built With](#built-with)
+  * [Features](#features)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Usage](#usage)
+  * [Personalize and Customize](#personalize-and-customize)
+    * [_config.yml](#_configyml)
+    * [Github Metadata Plugin](#github-metadata-plugin)
+    * [_data/*.yml](#_datayml)
+    * [Particles.js](#particlesjs)
+* [Contributing](#contributing)
+* [License](#license)
+* [Acknowledgements](#acknowledgements)
 
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+[![Project Screenshot][product-screenshot]](https://longpdo.github.io/neumorphism/)
+
+This is a personal website built with `Jekyll` and hosted on `Github Pages`, which is based on the new `Neumorphism` design trend and was developed with a mobile-first approach. This can be used by developers, who want to showcase their resume and portfolio. If you want to use this for your own website, fork this repository and then refer to [personalize and customize](#personalize-and-customize).
+
+### Built With
+
+* [Jekyll](https://jekyllrb.com/)
+
+### Features
+
+* Mobile-First Responsive Design
+* Animated preloader animation
+* Landing Page with animated background with [particles.js](https://vincentgarreau.com/particles.js/), a Typing Carousel and animated social icons
+* Dark Neumorphism Design on main content
+* [Animations On Scroll](https://michalsnik.github.io/aos/)
+* Filterable *Skills* word cloud
+* [Github's API](https://developer.github.com/v3/) automatically populating the *Open Source Projects* section
+* Gulp dev workflow with [BrowserSync](https://browsersync.io/), [Autoprefixer](https://autoprefixer.github.io/) and `JS` & `SCSS` minifying.
+* [Google Analytics](https://analytics.google.com/)
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+`The commands and instructions I provide are for MacOS - please look up the specific commands for your OS on your own.`
+
+### Prerequisites
+
+* [NodeJS](https://nodejs.org/en/)
+
+```sh
+brew install node
 ```
----
-layout: index
-title: Home
----
+
+If you need to switch between Node versions regurlarly, I would recommend to install Node via [Node Version Manager](https://github.com/nvm-sh/nvm/blob/master/README.md#manual-install).
+
+* [Jekyll](https://jekyllrb.com/)
+
+```sh
+gem install bundler jekyll
 ```
 
-You'll also need to add a setting to `_config.yml` telling Jekyll how many posts
-to include per page (e.g. `paginate: 5`).
+For more information, refer to [this](https://jekyllrb.com/docs/installation/).
 
-### Keep It Simple
+* [Yarn](https://yarnpkg.com/)
 
-In keeping with the original Hyde theme, Hydeout aims to keep the overall
-design lightweight and plugin-free. JavaScript is currently limited only
-to Disqus and Google Analytics (and is only loaded if you provide configuration
-variables).
-
-Hydeout makes heavy use of Flexbox in its CSS. If Flexbox is not available,
-the CSS degrades into a single column layout.
-
-### Customization
-
-Hydeout replaces Hyde's class-based theming with the use
-of the following SASS variables:
-
-```scss
-$sidebar-bg-color: #202020 !default;
-$sidebar-fg-color: white !default;
-$sidebar-sticky: true !default;
-$layout-reverse: false !default;
-$link-color: #268bd2 !default;
+```sh
+npm install -g yarn
 ```
 
-To override these variables, create your own `assets/css/main.scss` file.
-Define your own variables, then import in Hydeout's SCSS, like so:
+### Installation
 
-```scss
----
-# Jekyll needs front matter for SCSS files
----
+> Recommended way: If you want to contribute to this theme or open issues due to problems implementing this on your own, I would recommend forking the repository directly. This makes it easier for me to solve open issues and questions or check pull requests.
 
-$sidebar-bg-color: #ac4142;
-$link-color: #ac4142;
-$sidebar-sticky: false;
-@import "hydeout";
+1.1: Fork the repository (using the `Fork` button at the top) and then clone the repository
+
+```sh
+# Replace {YOUR_USERNAME} with your actual username
+git clone https://github.com/{YOUR_USERNAME}/neumorphism.git
 ```
 
-See the [_variables](_sass/hydeout/_variables.scss) file for other variables
-you can override.
+or
 
-You can see the full set of partials you can replace in the
-[`_includes`](_includes) folder, but there are a few worth noting:
+1.2: Create your own repository (using the green `Use this template` button at the top) and then clone the repository
 
-* `_includes/copyright.html` - Insert your own copyright here.
+```sh
+# Replace {YOUR_USERNAME}, {YOUR_REPOSITORY} with the actual values
+git clone https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}.git
+```
 
-* `_includes/custom-head.html` - Insert custom head tags (e.g. to load your
-  own stylesheets)
+2: Change directory into neumorphism
 
-* `_includes/custom-foot.html` - Insert custom elements at the end of the
-  body (e.g. for custom JS)
+```sh
+cd neumorphism
+```
 
-* `_includes/custom-nav-links.html` - Additional nav links to insert at the
-  end of the list of links in the sidebar.
+3: Install dependencies
 
-  Pro-tip: The `nav`s in the sidebar are flexboxes. Use the `order` property
-  to order your links.
+```sh
+yarn
+```
 
-* `_includes/custom-icon-links.html`- Additional icon links to insert at the
-  end of the icon links at the bottom of the sidebar. You can use the `order`
-  property to re-order.
+<!-- USAGE EXAMPLES -->
 
-* `_includes/favicons.html` - Replace references to `favicon.ico` and
-  `favicon.png` with your own favicons references.
+## Usage
 
-* `_includes/font-includes.html` - The Abril Fatface font used for the site
-  title is loaded here. If you're overriding that font in the CSS, be sure
-  to also remove the font load reference here.
+* Run and develop locally with live server at `http://localhost:4000`, this will also build production-ready `JS` and `SCSS` assets with every change
 
-### New Features
+```sh
+gulp
+```
 
-* Hydeout adds a new tags page (accessible in the sidebar). Just create a
-  new page with the tags layout:
+* After committing and pushing, see the `Settings` page of your repository to see where your site is published at via `Github Pages`.
 
-  ```
-  ---
-  layout: tags
-  title: Tags
-  ---
-  ```
+### Personalize and Customize
 
-* Hydeout adds a new "category" layout for dedicated category pages.
-  Category pages are automatically added to the sidebar. All other pages
-  must have `sidebar_link: true` in their front matter to show up in
-  the sidebar. To create a category page, use the `category` layout"
+#### _config.yml
 
-  ```
-  ---
-  layout: category
-  title: My Category
-  ---
+Edit `_config.yml` to personalize your site. For documentation, refer to [docs/config.md](https://github.com/longpdo/neumorphism/blob/master/docs/config.md).
 
-  Description of "My Category"
-  ```
+#### Github Metadata Plugin
 
-* You can control how pages are sorted by using the `sidebar_sort_order`
-  parameter in the front matter. This works for both category and non-category
-  pages, although non-category pages will always come first. Take a look at
-  [`_includes/sidebar-nav-links.html`](./_includes/sidebar-nav-links.html) if
-  you want to customize this behavior.
+If you want to automatically have your Github repositories pulled for the *Open Source Projects* section, then you also need to authenticate yourself for the Github Metadata plugin to work.
 
-  ```
-  ---
-  layout: page
-  title: My page
-  sidebar_sort_order: 123
-  ---
+You need to generate a new personal access token on GitHub:
 
-  Some content.
-  ```
+* Go to the [Github Token site](https://github.com/settings/tokens/new)
+* Select the scope `public_repository`, and add a description.
+* Confirm and save the settings. Copy the token you see on the page.
+* Create a `.env` file inside your repository and add your generated `JEKYLL_GITHUB_TOKEN`:
 
-* A simple redirect-to-Google search is available. Just create a page with
-  the `search` layout.
+```text
+JEKYLL_GITHUB_TOKEN=0YOUR0GENERATED0TOKEN0
+```
 
-  ```
-  ---
-  layout: search
-  title: Google Search
-  ---
-  ```
+To complete the configuration for the Github Metadata plugin, you also need to change the value of `repository` inside `_config.yml`. After this, you should the Github Metadata plugin should work properly.
 
-* Disqus integration is ready out of the box. Just add the following to
-  your config file:
+For optimal results, you should make sure, that every Github project, you want included on this portfolio, has added following informations on Github:
 
-  ```yaml
-  disqus:
-    shortname: my-disqus-shortname
-  ```
+* Description
+* Homepage link, if there is a live version of it
+* Topics
 
-  If you don't want Disqus or want to use something else, override
-  `comments.html`.
+Example:
+![Github Repository Information Example][github-repo-info]
 
-* For Google Analytics support, define a `google_analytics` variable with
-  your property ID in your config file.
+#### _data/*.yml
 
-There's also a bunch of minor tweaks and adjustments throughout the
-theme. Hope this works for you!
+Edit files inside `_data` to add information to the portfolio. For documentation, refer to [docs/data.md](https://github.com/longpdo/neumorphism/blob/master/docs/data.md).
+
+#### Particles.js
+
+Edit `assets/particles.json` to customize the landing page backgorund animation. For more information, refer to [this](https://github.com/VincentGarreau/particles.js/#options).
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## Acknowledgements
+
+* [Font Awesome](https://fontawesome.com/)
+* [Normalize.css](https://necolas.github.io/normalize.css/)
+* Based Preloader on [Codrin Pavel's](https://codepen.io/zerospree/pen/aCjAz) version
+* Typing Carousel by [Gregory Schier](https://codepen.io/gschier/pen/jkivt)
+* Social Button Animation by [Stéphane Lyver](https://codepen.io/wouwi/pen/Lwrmi)
+* Adapted [Damian Jankowski's](https://codepen.io/dolaron/pen/rNadmOE) color palette for the neumorphism design
+* Based Timeline on [Krishna Babu's](https://codepen.io/krishnab/pen/OPwqbW) version
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[product-screenshot]: https://raw.githubusercontent.com/longpdo/neumorphism/master/docs/screenshot.gif
+[github-repo-info]: https://raw.githubusercontent.com/longpdo/neumorphism/master/docs/github-repo-info.png
